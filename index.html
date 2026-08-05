@@ -3,58 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SERVICELNINA - Soluciones Tecnológicas Profesionales</title>
-    <link rel="stylesheet" href="assets/css/styles.css?v=2025080502">
+    <title>SERVICELNINA - Tecnología, Seguridad y Desarrollo Profesional</title>
+    <link rel="stylesheet" href="assets/css/styles.css?v=2025080503">
 </head>
 <body>
     <!-- Canvas para partículas -->
     <canvas id="canvas"></canvas>
 
-    <!-- Navbar -->
-    <nav>
+    <!-- Navbar Premium -->
+    <nav class="navbar-premium">
         <div class="nav-container">
             <div class="nav-logo" onclick="router.navigate('/')">
-                <div class="nav-logo-icon">SN</div>
-                <div>
-                    <div style="font-size: 0.9rem; color: var(--gold);">SERVICELNINA</div>
-                    <div style="font-size: 0.7rem; color: var(--electric-blue);">.com.bo</div>
-                </div>
+                <div class="nav-logo-icon">◆</div>
+                <span>SERVICELNINA</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#" data-route="/" class="active">Inicio</a></li>
-                <li><a href="#" data-route="/descargas">Descargas</a></li>
-                <li><a href="#" data-route="/licencias">Licencias</a></li>
-                <li><a href="#" data-route="/soporte">Soporte</a></li>
-                <li><a href="#" data-route="/contacto">Contacto</a></li>
+                <li><a href="#" data-route="/" class="active">INICIO</a></li>
+                <li><a href="#" data-route="/productos">PRODUCTOS</a></li>
+                <li><a href="#" data-route="/soluciones">SOLUCIONES</a></li>
+                <li><a href="#" data-route="/descargas">DESCARGAS</a></li>
+                <li><a href="#" data-route="/licencias">LICENCIAS</a></li>
+                <li><a href="#" data-route="/soporte">SOPORTE</a></li>
+                <li><a href="#" data-route="/contacto">CONTACTO</a></li>
             </ul>
-            <button class="nav-cta" onclick="router.navigate('/descargas')">Descargar</button>
+            <button class="nav-cta" onclick="router.navigate('/descargas')">Comenzar</button>
             <button class="nav-mobile-toggle">☰</button>
         </div>
     </nav>
 
     <main>
         <!-- PÁGINA INICIO -->
-        <section id="inicio" class="hero">
+        <section id="inicio" class="hero-premium">
             <div class="hero-content">
                 <h1>SERVICELNINA</h1>
-                <p>Soluciones tecnológicas avanzadas en software empresarial, desarrollo de aplicaciones y telecomunicaciones</p>
+                <p class="hero-subtitle">Tecnología, seguridad y desarrollo de software profesional</p>
+
+                <div class="hero-services">
+                    <div class="service-tag">💻 Desarrollo de Software</div>
+                    <div class="service-tag">🔬 Análisis Forense</div>
+                    <div class="service-tag">📱 Reparación Móvil</div>
+                    <div class="service-tag">⚙️ Gestión Empresarial</div>
+                    <div class="service-tag">🤖 Inteligencia Artificial</div>
+                    <div class="service-tag">🛠️ Soporte Especializado</div>
+                </div>
+
                 <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="router.navigate('/descargas')">
-                        Explorar Apps →
+                    <button class="btn btn-primary" onclick="router.navigate('/productos')">
+                        Explorar Soluciones
                     </button>
                     <button class="btn btn-secondary" onclick="router.navigate('/contacto')">
-                        Contacto
+                        Contactar
                     </button>
+                </div>
+            </div>
+            <div class="hero-glow"></div>
+        </section>
+
+        <!-- PÁGINA PRODUCTOS -->
+        <section id="productos" class="section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Productos Destacados</h2>
+                    <p>Soluciones integrales para tu negocio</p>
+                </div>
+                <div class="grid" id="productos-grid">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LABORATORIO SMART - DESTACADO -->
+        <section class="section-dark lab-smart">
+            <div class="container">
+                <div class="lab-content">
+                    <div class="lab-text">
+                        <h2>Laboratorio Smart</h2>
+                        <p class="lab-description">Plataforma avanzada de análisis con capacidades forenses profesionales</p>
+                        <ul class="lab-features">
+                            <li>✓ Análisis digital avanzado</li>
+                            <li>✓ Reportes automáticos profesionales</li>
+                            <li>✓ Bases de datos seguras encriptadas</li>
+                            <li>✓ Control de muestras integrado</li>
+                            <li>✓ Exportación en múltiples formatos</li>
+                            <li>✓ Historial completo auditable</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="router.navigate('/descargas')">Descargar Ahora</button>
+                    </div>
+                    <div class="lab-visual">
+                        <div class="lab-icon">🔬</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PÁGINA SOLUCIONES -->
+        <section id="soluciones" class="section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Soluciones Empresariales</h2>
+                    <p>Tecnología de nivel empresarial para transformar tu negocio</p>
+                </div>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <div class="solution-icon">💼</div>
+                        <h3>Gestión Empresarial</h3>
+                        <p>Administra todos los aspectos de tu empresa desde una plataforma integrada.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">🛡️</div>
+                        <h3>Seguridad Profesional</h3>
+                        <p>Protege tus datos con sistemas de seguridad de nivel empresarial.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">📊</div>
+                        <h3>Análisis Avanzado</h3>
+                        <p>Obtén insights profundos de tus datos con herramientas de análisis.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">⚡</div>
+                        <h3>Automatización</h3>
+                        <p>Automatiza procesos repetitivos y ahorra tiempo valioso.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">🌐</div>
+                        <h3>Integración Completa</h3>
+                        <p>Conecta todas tus herramientas en un ecosistema cohesivo.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">🚀</div>
+                        <h3>Escalabilidad</h3>
+                        <p>Crece sin preocupaciones, nuestras soluciones escalan contigo.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- PÁGINA DESCARGAS -->
-        <section id="descargas" class="py-4">
+        <section id="descargas" class="section-dark">
             <div class="container">
-                <div class="section-title">
-                    <h2>Mis Aplicaciones</h2>
-                    <p>Descubre herramientas profesionales diseñadas para potenciar tu negocio</p>
+                <div class="section-header">
+                    <h2>Centro de Descargas</h2>
+                    <p>Aplicaciones profesionales listas para descargar</p>
                 </div>
                 <div class="grid" id="descargas-grid">
                     <div class="loading">
@@ -65,9 +154,9 @@
         </section>
 
         <!-- PÁGINA LICENCIAS -->
-        <section id="licencias" class="py-4">
+        <section id="licencias" class="section-dark">
             <div class="container">
-                <div class="section-title">
+                <div class="section-header">
                     <h2>Sistema de Licencias</h2>
                     <p>Gestiona tus licencias de software de manera fácil y segura</p>
                 </div>
@@ -116,11 +205,11 @@
         </section>
 
         <!-- PÁGINA SOPORTE -->
-        <section id="soporte" class="py-4">
+        <section id="soporte" class="section-dark">
             <div class="container">
-                <div class="section-title">
-                    <h2>Soporte y Ayuda</h2>
-                    <p>Estamos aquí para ayudarte en cada paso del camino</p>
+                <div class="section-header">
+                    <h2>Soporte Técnico Profesional</h2>
+                    <p>Estamos disponibles 24/7 para ayudarte</p>
                 </div>
 
                 <div id="soporte-content">
@@ -148,11 +237,11 @@
         </section>
 
         <!-- PÁGINA CONTACTO -->
-        <section id="contacto" class="py-4">
+        <section id="contacto" class="section-dark">
             <div class="container">
-                <div class="section-title">
+                <div class="section-header">
                     <h2>Ponte en Contacto</h2>
-                    <p>Escribenos tus dudas, sugerencias o solicitudes de soporte</p>
+                    <p>Contáctanos para consultas, soporte o colaboraciones</p>
                 </div>
 
                 <div class="grid-2">

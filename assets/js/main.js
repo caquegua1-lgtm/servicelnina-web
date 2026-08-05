@@ -83,6 +83,33 @@ async function loadInicio() {
     // Ya está renderizada en el HTML
 }
 
+// ===== PÁGINA PRODUCTOS =====
+async function loadProductos() {
+    const container = document.getElementById('productos-grid');
+    if (!container) return;
+
+    container.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+
+    try {
+        const apps = await API.getApps();
+        container.innerHTML = apps.slice(0, 3).map(app => `
+            <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">${app.icon}</div>
+                <h3>${app.name}</h3>
+                <p>${app.description}</p>
+                <p style="font-size: 1.2rem; color: var(--blue); margin-top: 1rem; font-weight: bold;">${app.price}</p>
+            </div>
+        `).join('');
+    } catch (error) {
+        container.innerHTML = '<p class="text-center">Error al cargar productos</p>';
+    }
+}
+
+// ===== PÁGINA SOLUCIONES =====
+async function loadSoluciones() {
+    // Ya está renderizada en el HTML
+}
+
 // ===== PÁGINA DESCARGAS =====
 async function loadDescargas() {
     const container = document.getElementById('descargas-grid');
@@ -230,6 +257,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Registrar rutas
     router.register('/', 'Inicio', loadInicio);
+    router.register('/productos', 'Productos', loadProductos);
+    router.register('/soluciones', 'Soluciones', loadSoluciones);
     router.register('/descargas', 'Descargas', loadDescargas);
     router.register('/licencias', 'Licencias', loadLicencias);
     router.register('/soporte', 'Soporte', loadSoporte);
