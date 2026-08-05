@@ -273,6 +273,23 @@ async function loadContacto() {
     });
 }
 
+// ===== FUNCIONES DE PAGO =====
+function openPaymentModal() {
+    document.getElementById('paymentModal').classList.add('active');
+}
+
+function closePaymentModal() {
+    document.getElementById('paymentModal').classList.remove('active');
+}
+
+// Cerrar modal al hacer clic fuera
+window.addEventListener('click', (e) => {
+    const modal = document.getElementById('paymentModal');
+    if (e.target === modal) {
+        closePaymentModal();
+    }
+});
+
 // ===== INICIALIZAR =====
 document.addEventListener('DOMContentLoaded', () => {
     // Inicializar partículas
