@@ -2,7 +2,7 @@
 const API = {
     // URL base de tu servidor Railway
     baseURL: 'https://servicelnina-production.up.railway.app',
-    appsFile: '/apps-sync.json',
+    appsFile: './apps-sync.json',
 
     // Cache de apps
     cachedApps: null,
