@@ -203,173 +203,33 @@ const API = {
         }
     ],
 
-    // Herramientas de alquiler con +50% de ganancia
+    // Herramientas de alquiler - Precios finales (100% markup)
     rentals: [
-        {
-            id: 101,
-            name: "EFT Pro Tool Rent",
-            slug: "eft-pro-rent",
-            description: "Alquiler de herramienta EFT profesional",
-            duration: "1 Year",
-            priceBase: 50.92,
-            price: "$76.38 USD",
-            icon: "⚡",
-            type: "rent"
-        },
-        {
-            id: 102,
-            name: "DFT PRO Tool Rent",
-            slug: "dft-pro-rent",
-            description: "Alquiler anual de DFT PRO con AUTO API",
-            duration: "1 Year",
-            priceBase: 71.77,
-            price: "$107.66 USD",
-            icon: "📊",
-            type: "rent"
-        },
-        {
-            id: 103,
-            name: "TSM Tool Pro Rent",
-            slug: "tsm-pro-rent",
-            description: "Acceso TSM Pro por 1 año con API automática",
-            duration: "1 Year",
-            priceBase: 40.91,
-            price: "$61.36 USD",
-            icon: "⚙️",
-            type: "rent"
-        },
-        {
-            id: 104,
-            name: "USB Redirector 1 Year",
-            slug: "usb-redirector-rent",
-            description: "Redirección USB profesional anual",
-            duration: "1 Year",
-            priceBase: 58,
-            price: "$87 USD",
-            icon: "🔌",
-            type: "rent"
-        },
-        {
-            id: 105,
-            name: "TR Tool Rent",
-            slug: "tr-tool-rent",
-            description: "Acceso a herramienta TR por 24 horas",
-            duration: "24 Hours",
-            priceBase: 1.5,
-            price: "$2.25 USD",
-            icon: "🔧",
-            type: "rent"
-        },
-        {
-            id: 106,
-            name: "MDM FIX TOOL Rent",
-            slug: "mdm-fix-rent",
-            description: "Reparación MDM automática por 6 horas",
-            duration: "6 Hours",
-            priceBase: 1.2,
-            price: "$1.80 USD",
-            icon: "🛠️",
-            type: "rent"
-        },
-        {
-            id: 107,
-            name: "Griffin Unlocker Rent",
-            slug: "griffin-unlocker-rent",
-            description: "Desbloqueo Griffin Premium por 6 horas",
-            duration: "6 Hours",
-            priceBase: 1.95,
-            price: "$2.93 USD",
-            icon: "🔓",
-            type: "rent"
-        },
-        {
-            id: 108,
-            name: "Hydra Tool Rent",
-            slug: "hydra-tool-rent",
-            description: "Acceso Hydra sin dongle por 12 horas",
-            duration: "12 Hours",
-            priceBase: 1,
-            price: "$1.50 USD",
-            icon: "🌊",
-            type: "rent"
-        },
-        {
-            id: 109,
-            name: "CF Tools Rent",
-            slug: "cf-tools-rent",
-            description: "Herramientas CF por 12 horas",
-            duration: "12 Hours",
-            priceBase: 0.4,
-            price: "$0.60 USD",
-            icon: "📱",
-            type: "rent"
-        },
-        {
-            id: 110,
-            name: "AndroidWinTool MTK Rent",
-            slug: "androidwintool-rent",
-            description: "Herramienta Android (MTK/Qualcomm) por 48 horas",
-            duration: "48 Hours",
-            priceBase: 1.4,
-            price: "$2.10 USD",
-            icon: "🤖",
-            type: "rent"
-        },
-        {
-            id: 111,
-            name: "Pandora Tool Rent",
-            slug: "pandora-tool-rent",
-            description: "Acceso Pandora profesional por 48 horas",
-            duration: "48 Hours",
-            priceBase: 20,
-            price: "$30 USD",
-            icon: "🎭",
-            type: "rent"
-        },
-        {
-            id: 112,
-            name: "Sigma Plus Online Rent",
-            slug: "sigma-plus-rent",
-            description: "Sigma Plus acceso online por 7 días",
-            duration: "7 Days",
-            priceBase: 0,
-            price: "$0 USD",
-            icon: "Σ",
-            type: "rent"
-        },
-        {
-            id: 113,
-            name: "AnonySHU Tool Rent",
-            slug: "anonyoshu-rent",
-            description: "Herramienta AnonySHU por 12 horas",
-            duration: "12 Hours",
-            priceBase: 2,
-            price: "$3 USD",
-            icon: "🔐",
-            type: "rent"
-        },
-        {
-            id: 114,
-            name: "Oppo/Realme Token Tool",
-            slug: "oppo-token-rent",
-            description: "Desencriptación de token Oppo/Realme/OnePlus",
-            duration: "Lifetime",
-            priceBase: 10,
-            price: "$15 USD",
-            icon: "📲",
-            type: "rent"
-        },
-        {
-            id: 115,
-            name: "Android Multitool Rent",
-            slug: "android-multitool-rent",
-            description: "Herramienta multifunción Android por 2 horas",
-            duration: "2 Hours",
-            priceBase: 0.3,
-            price: "$0.45 USD",
-            icon: "🛠️",
-            type: "rent"
-        }
+        { id: 101, name: "TR Tool Rent (24h)", slug: "tr-tool-rent", description: "Acceso por 24 horas", duration: "24 Hours", price: "$3.00 USD", icon: "🔧", type: "rent" },
+        { id: 102, name: "MobileSea Tool [MST] (6h)", slug: "mobilesea-rent", description: "Acceso por 6 horas", duration: "6 Hours", price: "$0.90 USD", icon: "📱", type: "rent" },
+        { id: 103, name: "TSM-Tools Rent (3h)", slug: "tsm-rent-3h", description: "Acceso por 3 horas", duration: "3 Hours", price: "$0.80 USD", icon: "⚙️", type: "rent" },
+        { id: 104, name: "TFM Tool Rent (6h)", slug: "tfm-tool-rent", description: "Acceso por 6 horas", duration: "6 Hours", price: "$0.80 USD", icon: "🔧", type: "rent" },
+        { id: 105, name: "UNLOCK TOOL RENT (6h)", slug: "unlock-tool-rent", description: "Acceso por 6 horas", duration: "6 Hours", price: "$0.60 USD", icon: "🔓", type: "rent" },
+        { id: 106, name: "Kg Killer Tool (6h)", slug: "kg-killer-rent", description: "Acceso por 6 horas", duration: "6 Hours", price: "$2.00 USD", icon: "⚡", type: "rent" },
+        { id: 107, name: "MDM FIX TOOL (6h)", slug: "mdm-fix-rent", description: "Acceso por 6 horas", duration: "6 Hours", price: "$2.40 USD", icon: "🛠️", type: "rent" },
+        { id: 108, name: "Griffin-Unlocker (6h)", slug: "griffin-unlocker-rent", description: "Acceso por 6 horas", duration: "6 Hours", price: "$3.90 USD", icon: "🔓", type: "rent" },
+        { id: 109, name: "Hydra Tool (12h)", slug: "hydra-tool-rent", description: "Acceso por 12 horas", duration: "12 Hours", price: "$2.00 USD", icon: "🌊", type: "rent" },
+        { id: 110, name: "DFT Pro Tool (45h)", slug: "dft-pro-rent-45h", description: "Acceso por 45 horas", duration: "45 Hours", price: "$2.80 USD", icon: "📊", type: "rent" },
+        { id: 111, name: "Android Multitool (2h)", slug: "android-multitool-rent", description: "Acceso por 2 horas", duration: "2 Hours", price: "$0.60 USD", icon: "🤖", type: "rent" },
+        { id: 112, name: "CF Tools (12h)", slug: "cf-tools-rent", description: "Acceso por 12 horas", duration: "12 Hours", price: "$0.80 USD", icon: "📱", type: "rent" },
+        { id: 113, name: "AndroidWinTool (48h)", slug: "androidwintool-rent", description: "Acceso por 48 horas", duration: "48 Hours", price: "$2.80 USD", icon: "🤖", type: "rent" },
+        { id: 114, name: "RTC Tool RENT (6h)", slug: "rtc-tool-rent", description: "Acceso por 6 horas", duration: "6 Hours", price: "$2.00 USD", icon: "⚙️", type: "rent" },
+        { id: 115, name: "Pandora Tool (48h)", slug: "pandora-tool-rent", description: "Acceso por 48 horas", duration: "48 Hours", price: "$27.00 USD", icon: "🎭", type: "rent" },
+        { id: 116, name: "Arab FRP Tool (2h)", slug: "arab-frp-rent", description: "Acceso por 2 horas", duration: "2 Hours", price: "$0.80 USD", icon: "📱", type: "rent" },
+        { id: 117, name: "APIZU MDM TOOL (4h)", slug: "apizu-mdm-rent", description: "Acceso por 4 horas", duration: "4 Hours", price: "$2.40 USD", icon: "🛠️", type: "rent" },
+        { id: 118, name: "AnonySHU Tool (12h)", slug: "anonyoshu-rent", description: "Acceso por 12 horas", duration: "12 Hours", price: "$4.00 USD", icon: "🔐", type: "rent" },
+        { id: 119, name: "CP-Tool CPT Pro (12h)", slug: "cp-tool-rent", description: "Acceso por 12 horas", duration: "12 Hours", price: "$4.40 USD", icon: "⚡", type: "rent" },
+        { id: 120, name: "Samsungtool kg Bypass (12h)", slug: "samsungtool-bypass-rent", description: "Acceso por 12 horas", duration: "12 Hours", price: "$7.00 USD", icon: "📱", type: "rent" },
+        { id: 121, name: "Samsungtool +10c (12h)", slug: "samsungtool-10c-rent", description: "Acceso por 12 horas", duration: "12 Hours", price: "$26.00 USD", icon: "📱", type: "rent" },
+        { id: 122, name: "Sigma plus box (30min)", slug: "sigma-plus-box-rent", description: "Acceso por 30 minutos", duration: "30 Minutes", price: "$4.00 USD", icon: "📦", type: "rent" },
+        { id: 123, name: "Octopus Samsung (30min)", slug: "octopus-samsung-rent", description: "Acceso por 30 minutos", duration: "30 Minutes", price: "$5.00 USD", icon: "🐙", type: "rent" },
+        { id: 124, name: "Octoplus LG (30min)", slug: "octoplus-lg-rent", description: "Acceso por 30 minutos", duration: "30 Minutes", price: "$4.00 USD", icon: "🐙", type: "rent" },
+        { id: 125, name: "Oppo/Realme Token", slug: "oppo-token-rent", description: "Desencriptación de token", duration: "Lifetime", price: "$20.00 USD", icon: "📲", type: "rent" }
     ],
 
     // Obtener todas las apps
