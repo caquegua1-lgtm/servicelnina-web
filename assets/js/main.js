@@ -235,8 +235,8 @@ async function loadDescargas() {
                         <button class="btn btn-primary" onclick="downloadApp('${app.downloadUrl}')" style="background: linear-gradient(135deg, ${color.primary}, ${color.primary}dd);">
                             Descargar Ahora
                         </button>
-                        <button class="btn btn-details" style="border-color: ${color.primary}; color: ${color.primary};">
-                            Ver Detalles
+                        <button class="btn btn-details" onclick="rentNow('${app.slug}', '${app.name}')" style="border-color: ${color.primary}; color: ${color.primary};">
+                            Alquilar por Horas
                         </button>
                     </div>
                 </div>
@@ -254,6 +254,13 @@ function downloadApp(downloadUrl) {
     } else {
         alert('Link de descarga no disponible');
     }
+}
+
+// Función para alquilar herramienta
+function rentNow(slug, name) {
+    const message = `Hola, quiero alquilar acceso temporal a ${name}. ¿Cuáles son las opciones y precios disponibles?`;
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/59176547194?text=${encodedMessage}`, '_blank');
 }
 
 // ===== PÁGINA ALQUILER =====
