@@ -120,39 +120,65 @@ async function loadDescargas() {
     try {
         const apps = await API.getApps();
 
-        container.innerHTML = apps.map(app => `
-            <div class="card">
-                <div style="font-size: 3rem; margin-bottom: 1rem;">${app.icon}</div>
-                <h3>${app.name}</h3>
-                <p style="color: #aaa; margin-bottom: 0.5rem;">${app.description}</p>
-                <p style="font-size: 0.95rem; color: #999; margin-bottom: 1rem;">${app.details || ''}</p>
-                <div style="margin: 1.5rem 0; padding: 1rem 0; border-top: 1px solid rgba(212, 175, 55, 0.2);">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span class="text-gold" style="font-size: 1.5rem; font-weight: bold;">${app.price}</span>
-                        <span style="color: #999;">v${app.version}</span>
+        container.innerHTML = apps.map((app, idx) => {
+            const colors = [
+                { primary: '#d4af37', secondary: '#0d1117', icon: '⚖️' },  // Estudio Jurídico - Dorado
+                { primary: '#00d9ff', secondary: '#0d1117', icon: '🔬' },  // Laboratorio Smart - Cian
+                { primary: '#fbbf24', secondary: '#0d1117', icon: '🔧' },  // Tecnobolivia - Amarillo
+                { primary: '#a78bfa', secondary: '#0d1117', icon: '💼' },  // ServiceNina2 - Púrpura
+                { primary: '#22c55e', secondary: '#0d1117', icon: '🛡️' },  // Gestor Inventario - Verde
+                { primary: '#06b6d4', secondary: '#0d1117', icon: '💊' }   // Stock Farmacia - Cyan
+            ];
+            const color = colors[idx % colors.length];
+
+            return `
+                <div class="card-app" style="border-color: ${color.primary}40;">
+                    <div class="app-header" style="background: linear-gradient(135deg, ${color.primary}20 0%, ${color.primary}05 100%); border-bottom: 1px solid ${color.primary}40;">
+                        <div class="app-icon" style="font-size: 2.5rem; color: ${color.primary};">${app.icon}</div>
+                        <div class="app-title">
+                            <h3 style="color: ${color.primary};">${app.name}</h3>
+                            <span class="version-tag" style="background: ${color.primary}20; color: ${color.primary};">v${app.version}</span>
+                        </div>
                     </div>
-                    <div style="background: rgba(212, 175, 55, 0.1); padding: 0.5rem; border-radius: 4px; margin-bottom: 1rem; text-align: center; font-size: 0.9rem; color: var(--gold);">
-                        ✨ ${app.trial}
+
+                    <div class="app-body">
+                        <p class="app-description">${app.description}</p>
+
+                        <div class="app-price" style="background: linear-gradient(135deg, ${color.primary}15 0%, transparent 100%); border: 1px solid ${color.primary}30;">
+                            <span class="price-amount" style="color: ${color.primary};">${app.price}</span>
+                            <span class="price-trial">⭐ ${app.trial}</span>
+                        </div>
+
+                        <div class="app-info">
+                            <div class="info-item">
+                                <span class="info-label">📋 Requisitos:</span>
+                                <span class="info-value">${app.requirements}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">🆘 Soporte:</span>
+                                <span class="info-value">${app.support}</span>
+                            </div>
+                        </div>
+
+                        <div class="app-features">
+                            <p style="font-size: 0.9rem; color: #58a6ff; font-weight: 600; margin-bottom: 0.7rem;">✨ Características:</p>
+                            <ul>
+                                ${app.features.slice(0, 4).map(f => `<li style="color: ${color.primary};">✓ ${f}</li>`).join('')}
+                            </ul>
+                        </div>
                     </div>
-                    <div style="margin-bottom: 1rem; padding: 0.5rem; background: rgba(100, 100, 100, 0.1); border-radius: 4px; font-size: 0.85rem; color: #ccc;">
-                        <p style="margin: 0.3rem 0;"><strong style="color: var(--gold);">📋 Requisitos:</strong> ${app.requirements || 'Consulte con soporte'}</p>
-                        <p style="margin: 0.3rem 0;"><strong style="color: var(--gold);">🆘 Soporte:</strong> ${app.support || 'Disponible 24/7'}</p>
-                    </div>
-                    <div style="margin-bottom: 1rem;">
-                        <p style="font-size: 0.85rem; color: var(--gold); margin-bottom: 0.3rem;"><strong>Características principales:</strong></p>
-                        <ul style="text-align: left; margin: 0; padding-left: 1.2rem;">
-                            ${app.features.map(f => `<li style="margin-bottom: 0.4rem; color: var(--text-secondary); font-size: 0.9rem;">✓ ${f}</li>`).join('')}
-                        </ul>
+
+                    <div class="app-footer">
+                        <button class="btn btn-primary" onclick="downloadApp('${app.downloadUrl}')" style="background: linear-gradient(135deg, ${color.primary}, ${color.primary}dd);">
+                            Descargar Ahora
+                        </button>
+                        <button class="btn btn-details" style="border-color: ${color.primary}; color: ${color.primary};">
+                            Ver Detalles
+                        </button>
                     </div>
                 </div>
-                <button class="btn btn-primary" onclick="downloadApp('${app.downloadUrl}')">
-                    Descargar Ahora
-                </button>
-                <button class="btn btn-secondary" style="margin-top: 0.5rem; width: 100%;">
-                    Ver Detalles
-                </button>
-            </div>
-        `).join('');
+            `;
+        }).join('');
     } catch (error) {
         container.innerHTML = '<p class="text-center">Error al cargar aplicaciones</p>';
     }
