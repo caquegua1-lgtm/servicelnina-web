@@ -133,17 +133,26 @@ const API = {
             id: 8,
             name: "DFT PRO TOOL",
             slug: "dft-pro-tool",
-            description: "Software profesional DFT",
-            details: "Herramienta profesional para análisis y procesamiento avanzado.",
-            price: "$40 USD",
-            trial: "30 días gratis - Activación única",
-            features: ["Análisis profundo", "Procesamiento rápido", "Exportación múltiple", "Integración API"],
+            description: "Software profesional DFT - OFFICIAL RESELLER",
+            details: "Herramienta profesional para análisis y procesamiento avanzado con múltiples opciones de activación.",
+            price: "$107 - $108 USD",
+            trial: "Planes anuales - Activación automática",
+            features: [
+                "🆕 New User 1 Year: $107.65 USD",
+                "♻️ Renewal 1 Year: $107.34 USD",
+                "⚡ Procesamiento rápido",
+                "📊 Análisis profundo avanzado"
+            ],
             icon: "📊",
             clients: 0,
             version: "v8.0.0",
             requirements: "Windows 8+, 1GB RAM",
-            support: "Soporte técnico especializado",
-            downloadUrl: "https://servicelnina-production.up.railway.app/descargas/dft-pro-tool/DFTPRO_v8.0.0.exe"
+            support: "Soporte técnico especializado - OFFICIAL RESELLER",
+            downloadUrl: "https://servicelnina-production.up.railway.app/descargas/dft-pro-tool/DFTPRO_v8.0.0.exe",
+            plans: [
+                { name: "DFT PRO New User (1 Year)", type: "NEW USER", price: "$107.65 USD" },
+                { name: "DFT PRO Renewal (1 Year)", type: "RENEWAL", price: "$107.34 USD" }
+            ]
         },
         {
             id: 9,
