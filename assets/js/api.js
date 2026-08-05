@@ -18,7 +18,9 @@ const API = {
             version: "v2.1.1",
             requirements: "Windows 7+, 500MB espacio",
             support: "Email y WhatsApp 24/7",
-            downloadUrl: "https://servicelnina-production.up.railway.app/descargas/estudio-juridico-carrasco/EstudioJuridico-Setup-2.1.1.exe"
+            downloadUrl: "https://servicelnina-production.up.railway.app/descargas/estudio-juridico-carrasco/EstudioJuridico-Setup-2.1.1.exe",
+            bgColor: "#d4af37",
+            preview: "legal"
         },
         {
             id: 2,

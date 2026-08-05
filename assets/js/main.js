@@ -180,8 +180,19 @@ async function loadDescargas() {
                 </div>`
             };
 
+            // Preview especial para Estudio Jurídico
+            const specialPreview = app.id === 1 ? `
+                <div class="app-preview-banner" style="background: linear-gradient(135deg, ${color.primary}40 0%, ${color.primary}20 100%); padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem; text-align: center; border: 2px solid ${color.primary}60;">
+                    <div style="font-size: 4rem; margin-bottom: 0.5rem;">⚖️</div>
+                    <div style="color: ${color.primary}; font-weight: 700; font-size: 1.1rem;">ESTUDIO JURÍDICO</div>
+                    <div style="color: ${color.primary}80; font-size: 0.9rem; margin-top: 0.3rem;">LIBRE</div>
+                    <div style="color: ${color.primary}; font-weight: 500; font-size: 0.85rem; margin-top: 1rem;">JUSTICIA • HONESTIDAD • ÉTICA</div>
+                </div>
+            ` : '';
+
             return `
                 <div class="card-app" style="border-color: ${color.primary}40;">
+                    ${specialPreview}
                     <div class="app-header" style="background: linear-gradient(135deg, ${color.primary}20 0%, ${color.primary}05 100%); border-bottom: 1px solid ${color.primary}40;">
                         <div class="app-icon-wrapper" style="color: ${color.primary};">
                             ${mockups[color.mockup]}
