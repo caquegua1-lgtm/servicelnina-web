@@ -7,7 +7,7 @@ const API = {
     apps: [
         {
             id: 1,
-            name: 'Estudio Jurídico Carrasco',
+            name: 'Estudio Jurídico',
             description: 'Sistema completo de gestión para bufetes jurídicos',
             details: 'Gestiona todos los aspectos de tu estudio jurídico con este software profesional. Diseñado específicamente para abogados y despachos legales.',
             price: '$40 USD',
