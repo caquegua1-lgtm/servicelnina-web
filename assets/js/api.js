@@ -154,17 +154,26 @@ const API = {
             id: 9,
             name: "EFT PRO TOOL",
             slug: "eft-pro-tool",
-            description: "Herramienta profesional EFT",
-            details: "Software avanzado para procesamiento y análisis profesional.",
-            price: "$40 USD",
-            trial: "30 días gratis - Activación única",
-            features: ["Procesamiento seguro", "Interfaz moderna", "Backups automáticos", "Historial completo"],
+            description: "Herramienta profesional EFT - OFFICIAL RESELLER",
+            details: "Software avanzado para procesamiento y análisis profesional sin dongle.",
+            price: "$60 - $91 USD",
+            trial: "Planes anuales - Activación automática",
+            features: [
+                "🆕 New User Without Dongle 1 Year: $91.38 USD",
+                "♻️ Renewal Online Without Dongle 1 Year: $60.53 USD",
+                "🔐 Procesamiento seguro avanzado",
+                "📊 Interfaz profesional moderna"
+            ],
             icon: "🔐",
             clients: 0,
             version: "v1",
             requirements: "Windows 7+, 500MB espacio",
-            support: "Soporte por email y chat",
-            downloadUrl: "https://servicelnina-production.up.railway.app/descargas/eft-pro-tool/update112.7z"
+            support: "Soporte técnico 24/7 - OFFICIAL RESELLER",
+            downloadUrl: "https://servicelnina-production.up.railway.app/descargas/eft-pro-tool/update112.7z",
+            plans: [
+                { name: "EFT Pro Without Dongle (1 Year)", type: "NEW USER", price: "$91.38 USD" },
+                { name: "EFT Pro Renewal Online (1 Year)", type: "RENEWAL", price: "$60.53 USD" }
+            ]
         },
         {
             id: 10,
