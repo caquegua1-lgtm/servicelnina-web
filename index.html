@@ -23,6 +23,7 @@
                 <li><a href="#" data-route="/soluciones">SOLUCIONES</a></li>
                 <li><a href="#" data-route="/descargas">DESCARGAS</a></li>
                 <li><a href="#" data-route="/alquiler">ALQUILER</a></li>
+                <li><a href="#" data-route="/pedidos-revendedor">PEDIDOS</a></li>
                 <li><a href="#" data-route="/revendedores">REVENDEDORES</a></li>
                 <li><a href="#" data-route="/licencias">LICENCIAS</a></li>
                 <li><a href="#" data-route="/soporte">SOPORTE</a></li>
@@ -164,6 +165,37 @@
                 </div>
                 <div class="grid" id="alquiler-grid">
                     <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PÁGINA PEDIDOS DE REVENDEDOR -->
+        <section id="pedidos-revendedor" class="section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Panel de Pedidos - Revendedor</h2>
+                    <p>Gestiona tus pedidos de herramientas y servicios</p>
+                </div>
+
+                <div class="reseller-panel">
+                    <!-- Filtros y Búsqueda -->
+                    <div class="filter-bar">
+                        <div class="filter-group">
+                            <select id="filter-group" class="filter-select">
+                                <option value="all">All Group</option>
+                                <option value="downloads">Descargas Permanentes</option>
+                                <option value="rental">Herramientas de Alquiler</option>
+                            </select>
+                        </div>
+                        <div class="search-group">
+                            <input type="text" id="search-tools" class="search-input" placeholder="Buscar herramientas...">
+                        </div>
+                    </div>
+
+                    <!-- Listado de Herramientas -->
+                    <div id="reseller-tools-grid" class="reseller-tools-grid">
+                        <div class="loading"><div class="spinner"></div></div>
+                    </div>
                 </div>
             </div>
         </section>

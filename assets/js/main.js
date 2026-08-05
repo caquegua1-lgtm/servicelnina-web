@@ -582,6 +582,140 @@ window.addEventListener('click', (e) => {
     }
 });
 
+// ===== PÁGINA PEDIDOS DE REVENDEDOR =====
+async function loadPedidosRevendedor() {
+    const container = document.getElementById('reseller-tools-grid');
+    if (!container) return;
+
+    container.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+
+    try {
+        const [apps, rentals] = await Promise.all([API.getApps(), API.getRentals()]);
+
+        // Crear array combinado con categoría
+        const allTools = [
+            ...apps.map(app => ({
+                ...app,
+                category: 'downloads',
+                duration: 'Permanente',
+                type: 'app'
+            })),
+            ...rentals.map(rental => ({
+                ...rental,
+                category: 'rental',
+                type: 'rental'
+            }))
+        ];
+
+        // Renderizar herramientas
+        renderToolsGrid(allTools, container);
+
+        // Agregar event listeners para filtros
+        const filterGroup = document.getElementById('filter-group');
+        const searchInput = document.getElementById('search-tools');
+
+        if (filterGroup) {
+            filterGroup.addEventListener('change', () => {
+                filterAndSearch(allTools, container);
+            });
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', () => {
+                filterAndSearch(allTools, container);
+            });
+        }
+
+    } catch (error) {
+        container.innerHTML = '<p class="text-center">Error al cargar herramientas</p>';
+    }
+}
+
+function renderToolsGrid(tools, container) {
+    container.innerHTML = tools.map(tool => {
+        const colors = [
+            { primary: '#ff6b6b' },
+            { primary: '#4ecdc4' },
+            { primary: '#95e1d3' },
+            { primary: '#f38181' },
+            { primary: '#aa96da' }
+        ];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
+        return `
+            <div class="tool-card">
+                <div class="tool-card-header">
+                    <h3 class="tool-card-title">${tool.name}</h3>
+                    <span class="tool-card-status">✓ ${tool.type === 'rental' ? 'Alquiler' : 'Permanente'}</span>
+                </div>
+
+                <div class="tool-card-duration">${tool.duration || tool.price}</div>
+
+                <p class="tool-card-desc">${tool.description}</p>
+
+                ${tool.type === 'app' ? `
+                    <div class="tool-card-footer">
+                        <span class="tool-card-price">${tool.price}</span>
+                        <button class="tool-card-action" onclick="makeOrder('${tool.slug}', '${tool.name}')">
+                            Ordenar
+                        </button>
+                    </div>
+                ` : `
+                    <div class="tool-card-footer">
+                        <span class="tool-card-price">${tool.price}</span>
+                        <button class="tool-card-action" onclick="rentTool('${tool.slug}', '${tool.name}')">
+                            Alquilar
+                        </button>
+                    </div>
+                `}
+            </div>
+        `;
+    }).join('');
+}
+
+function filterAndSearch(allTools, container) {
+    const filterGroup = document.getElementById('filter-group');
+    const searchInput = document.getElementById('search-tools');
+
+    const selectedFilter = filterGroup?.value || 'all';
+    const searchTerm = searchInput?.value.toLowerCase() || '';
+
+    let filtered = allTools;
+
+    // Filtro por categoría
+    if (selectedFilter !== 'all') {
+        filtered = filtered.filter(tool => tool.category === selectedFilter);
+    }
+
+    // Filtro por búsqueda
+    if (searchTerm) {
+        filtered = filtered.filter(tool =>
+            tool.name.toLowerCase().includes(searchTerm) ||
+            tool.description.toLowerCase().includes(searchTerm)
+        );
+    }
+
+    renderToolsGrid(filtered, container);
+}
+
+function makeOrder(slug, name) {
+    const resellerId = localStorage.getItem('reseller_id');
+    if (!resellerId) {
+        alert('Por favor, regístrate como revendedor primero.');
+        router.navigate('/revendedores');
+        return;
+    }
+
+    const mensaje = `📦 NUEVO PEDIDO DE HERRAMIENTA:\n\n` +
+        `ID Revendedor: ${resellerId}\n` +
+        `🔧 Herramienta: ${name}\n` +
+        `📄 Slug: ${slug}\n` +
+        `⏰ Fecha: ${new Date().toLocaleString('es-BO')}`;
+
+    const encodedMessage = encodeURIComponent(mensaje);
+    window.open(`https://wa.me/59176547194?text=${encodedMessage}`, '_blank');
+}
+
 // ===== INICIALIZAR =====
 document.addEventListener('DOMContentLoaded', () => {
     // Inicializar partículas
@@ -596,6 +730,7 @@ document.addEventListener('DOMContentLoaded', () => {
     router.register('/soluciones', 'Soluciones', loadSoluciones);
     router.register('/descargas', 'Descargas', loadDescargas);
     router.register('/alquiler', 'Alquiler', loadAlquiler);
+    router.register('/pedidos-revendedor', 'Pedidos', loadPedidosRevendedor);
     router.register('/revendedores', 'Revendedores', loadRevendedores);
     router.register('/licencias', 'Licencias', loadLicencias);
     router.register('/soporte', 'Soporte', loadSoporte);
