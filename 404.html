@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERVICELNINA - Tecnología, Seguridad y Desarrollo Profesional</title>
+    <link rel="stylesheet" href="assets/css/styles.css?v=2025080503">
+</head>
+<body>
+    <!-- Canvas para partículas -->
+    <canvas id="canvas"></canvas>
+
+    <!-- Navbar Premium -->
+    <nav class="navbar-premium">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="router.navigate('/')">
+                <div class="nav-logo-icon">◆</div>
+                <span>SERVICELNINA</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" data-route="/" class="active">INICIO</a></li>
+                <li><a href="#" data-route="/productos">PRODUCTOS</a></li>
+                <li><a href="#" data-route="/soluciones">SOLUCIONES</a></li>
+                <li><a href="#" data-route="/descargas">DESCARGAS</a></li>
+                <li><a href="#" data-route="/licencias">LICENCIAS</a></li>
+                <li><a href="#" data-route="/soporte">SOPORTE</a></li>
+                <li><a href="#" data-route="/contacto">CONTACTO</a></li>
+            </ul>
+            <button class="nav-cta" onclick="router.navigate('/descargas')">Comenzar</button>
+            <button class="nav-mobile-toggle">☰</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- PÁGINA INICIO -->
+        <section id="inicio" class="hero-premium">
+            <div class="hero-content">
+                <h1>SERVICELNINA</h1>
+                <p class="hero-subtitle">Tecnología, seguridad y desarrollo de software profesional</p>
+
+                <div class="hero-services">
+                    <div class="service-tag">💻 Desarrollo de Software</div>
+                    <div class="service-tag">🔬 Análisis Forense</div>
+                    <div class="service-tag">📱 Reparación Móvil</div>
+                    <div class="service-tag">⚙️ Gestión Empresarial</div>
+                    <div class="service-tag">🤖 Inteligencia Artificial</div>
+                    <div class="service-tag">🛠️ Soporte Especializado</div>
+                </div>
+
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="router.navigate('/productos')">
+                        Explorar Soluciones
+                    </button>
+                    <button class="btn btn-secondary" onclick="router.navigate('/contacto')">
+                        Contactar
+                    </button>
+                </div>
+            </div>
+            <div class="hero-glow"></div>
+        </section>
+
+        <!-- PÁGINA PRODUCTOS -->
+        <section id="productos" class="section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Productos Destacados</h2>
+                    <p>Soluciones integrales para tu negocio</p>
+                </div>
+                <div class="grid" id="productos-grid">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LABORATORIO SMART - DESTACADO -->
+        <section class="section-dark lab-smart">
+            <div class="container">
+                <div class="lab-content">
+                    <div class="lab-text">
+                        <h2>Laboratorio Smart</h2>
+                        <p class="lab-description">Plataforma avanzada de análisis con capacidades forenses profesionales</p>
+                        <ul class="lab-features">
+                            <li>✓ Análisis digital avanzado</li>
+                            <li>✓ Reportes automáticos profesionales</li>
+                            <li>✓ Bases de datos seguras encriptadas</li>
+                            <li>✓ Control de muestras integrado</li>
+                            <li>✓ Exportación en múltiples formatos</li>
+                            <li>✓ Historial completo auditable</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="router.navigate('/descargas')">Descargar Ahora</button>
+                    </div>
+                    <div class="lab-visual">
+                        <div class="lab-icon">🔬</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PÁGINA SOLUCIONES -->
+        <section id="soluciones" class="section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Soluciones Empresariales</h2>
+                    <p>Tecnología de nivel empresarial para transformar tu negocio</p>
+                </div>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <div class="solution-icon">💼</div>
+                        <h3>Gestión Empresarial</h3>
+                        <p>Administra todos los aspectos de tu empresa desde una plataforma integrada.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">🛡️</div>
+                        <h3>Seguridad Profesional</h3>
+                        <p>Protege tus datos con sistemas de seguridad de nivel empresarial.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">📊</div>
+                        <h3>Análisis Avanzado</h3>
+                        <p>Obtén insights profundos de tus datos con herramientas de análisis.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">⚡</div>
+                        <h3>Automatización</h3>
+                        <p>Automatiza procesos repetitivos y ahorra tiempo valioso.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">🌐</div>
+                        <h3>Integración Completa</h3>
+                        <p>Conecta todas tus herramientas en un ecosistema cohesivo.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">🚀</div>
+                        <h3>Escalabilidad</h3>
+                        <p>Crece sin preocupaciones, nuestras soluciones escalan contigo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PÁGINA DESCARGAS -->
+        <section id="descargas" class="section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Centro de Descargas</h2>
+                    <p>Aplicaciones profesionales listas para descargar</p>
+                </div>
+                <div class="grid" id="descargas-grid">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PÁGINA LICENCIAS -->
+        <section id="licencias" class="section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Sistema de Licencias</h2>
+                    <p>Gestiona tus licencias de software de manera fácil y segura</p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>✓ Activar Licencia</h3>
+                        <form style="margin-top: 1.5rem;">
+                            <div class="form-group">
+                                <label>Código de Licencia</label>
+                                <input type="text" placeholder="Ej: SRVL-XXXX-XXXX-XXXX" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Validar Licencia
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="card">
+                        <h3>📋 Mis Licencias</h3>
+                        <div style="margin-top: 1.5rem;">
+                            <p style="color: #999;">Cargando tus licencias...</p>
+                            <div class="loading" style="margin-top: 1rem;">
+                                <div class="spinner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <h3>¿Cómo obtener una licencia?</h3>
+                    <p>Puedes obtener una licencia de dos formas:</p>
+                    <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">
+                            <strong>Versión de prueba:</strong> Acceso gratuito por 15 días
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <strong>Licencia de pago:</strong> Acceso ilimitado y soporte prioritario
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary mt-4" onclick="router.navigate('/contacto')">
+                        Comprar Licencia
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PÁGINA SOPORTE -->
+        <section id="soporte" class="section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Soporte Técnico Profesional</h2>
+                    <p>Estamos disponibles 24/7 para ayudarte</p>
+                </div>
+
+                <div id="soporte-content">
+                    <!-- Cargado dinámicamente -->
+                </div>
+
+                <div class="card mt-4">
+                    <h3>📞 Contacto Directo</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                        <div>
+                            <p style="color: #999;">WhatsApp</p>
+                            <p style="font-size: 1.2rem; color: var(--gold); font-weight: bold;">+591 76547194</p>
+                        </div>
+                        <div>
+                            <p style="color: #999;">Email</p>
+                            <p style="font-size: 1.2rem; color: var(--gold); font-weight: bold;">caquegua1@gmail.com</p>
+                        </div>
+                        <div>
+                            <p style="color: #999;">Horario</p>
+                            <p style="font-size: 1.2rem; color: var(--gold); font-weight: bold;">24/7</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PÁGINA CONTACTO -->
+        <section id="contacto" class="section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Ponte en Contacto</h2>
+                    <p>Contáctanos para consultas, soporte o colaboraciones</p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>📝 Formulario de Contacto</h3>
+                        <form id="contacto-form" style="margin-top: 1.5rem;">
+                            <div class="form-group">
+                                <label>Nombre Completo</label>
+                                <input type="text" name="nombre" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Correo Electrónico</label>
+                                <input type="email" name="email" placeholder="tu@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Asunto</label>
+                                <input type="text" name="asunto" placeholder="¿Cuál es tu consulta?" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Mensaje</label>
+                                <textarea name="mensaje" placeholder="Cuéntanos más detalles..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <div class="card">
+                            <h3>📍 Información de Contacto</h3>
+                            <div style="margin-top: 1.5rem;">
+                                <div style="margin-bottom: 1.5rem;">
+                                    <p style="color: #999; font-size: 0.9rem;">WhatsApp</p>
+                                    <p style="color: var(--text-primary); font-size: 1.1rem;">+591 76547194</p>
+                                </div>
+                                <div style="margin-bottom: 1.5rem;">
+                                    <p style="color: #999; font-size: 0.9rem;">Email</p>
+                                    <p style="color: var(--text-primary); font-size: 1.1rem;">caquegua1@gmail.com</p>
+                                </div>
+                                <div style="margin-bottom: 1.5rem;">
+                                    <p style="color: #999; font-size: 0.9rem;">Sitio Web</p>
+                                    <p style="color: var(--text-primary); font-size: 1.1rem;">www.servicelnina.com.bo</p>
+                                </div>
+                                <div>
+                                    <p style="color: #999; font-size: 0.9rem;">Disponibilidad</p>
+                                    <p style="color: var(--gold); font-size: 1.1rem; font-weight: bold;">24/7</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mt-4">
+                            <h3>⏱️ Tiempos de Respuesta</h3>
+                            <ul style="margin-top: 1rem;">
+                                <li style="margin-bottom: 0.5rem;">WhatsApp: <strong style="color: var(--gold);">Respuesta inmediata</strong></li>
+                                <li style="margin-bottom: 0.5rem;">Email: <strong style="color: var(--gold);">Menos de 24 horas</strong></li>
+                                <li>Soporte técnico: <strong style="color: var(--gold);">Prioritario</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SERVICELNINA. Todos los derechos reservados.</p>
+        <p>Tecnología, Innovación y Seguridad</p>
+    </footer>
+
+    <!-- FLOATING CHAT BUTTONS -->
+    <div class="chat-stack">
+        <a class="chat-btn telegram" href="https://t.me/servicelnina" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0Z" fill="currentColor"/>
+                <path d="M18.4 7.6L16.6 16.6C16.5 17 16.2 17.1 15.9 16.9L12.2 14.2L10.3 15.9C10 16.2 9.6 16.1 9.4 15.8L7.1 11.8L4.6 10.9C4.1 10.7 4 10.3 4.5 10.1L18 5.1C18.4 5 18.9 5.3 18.7 5.8L18.4 7.6Z" fill="white"/>
+            </svg>
+        </a>
+        <a class="chat-btn whatsapp" href="https://wa.me/59176547194" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.52 3.48A11.91 11.91 0 0012.02 0C5.39 0 .03 5.36.03 12c0 2.11.56 4.17 1.62 5.98L0 24l6.28-1.64A11.94 11.94 0 0012.02 24c6.63 0 12.03-5.36 12.03-12 0-3.21-1.25-6.21-3.53-8.52z" fill="currentColor"/>
+                <path d="M17.1 14.06c-.28-.14-1.64-.8-1.9-.89-.26-.09-.45-.14-.64.14-.2.28-.78.89-.95 1.07-.18.18-.36.2-.66.07-.3-.13-1.27-.47-2.42-1.49-.9-.8-1.51-1.78-1.69-2.08-.18-.3-.02-.46.13-.6.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2 0-.36-.01-.5-.02-.13-.64-1.55-.88-2.13-.23-.56-.47-.48-.64-.49-.16-.01-.36-.01-.55-.01-.18 0-.5.07-.77.36-.27.28-1.03 1.01-1.03 2.46 0 1.44 1.05 2.83 1.19 3.02.14.18 2.05 3.33 4.97 4.68 2.92 1.35 2.92.9 3.45.84.52-.06 1.66-.68 1.9-1.33.24-.65.24-1.2.17-1.33-.07-.13-.26-.19-.54-.33z" fill="white"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- PAYMENT MODAL -->
+    <div id="paymentModal" class="payment-modal">
+        <div class="payment-content">
+            <span class="payment-close" onclick="closePaymentModal()">✕</span>
+            <h2>Métodos de Pago</h2>
+            <p class="payment-subtitle">Elige tu forma de pago preferida</p>
+
+            <div class="payment-methods">
+                <!-- YAPE QR -->
+                <div class="payment-method">
+                    <div class="payment-icon">📱</div>
+                    <h3>Yape</h3>
+                    <p>Escanea el código QR o usa</p>
+                    <p class="payment-code">📱 76547194</p>
+                    <button class="btn btn-primary" onclick="alert('Número Yape: 76547194')">Ver Número</button>
+                </div>
+
+                <!-- VISA -->
+                <div class="payment-method">
+                    <div class="payment-icon">💳</div>
+                    <h3>Tarjeta Visa</h3>
+                    <p>Pago seguro con tarjeta de crédito</p>
+                    <p class="payment-note">Procesado de forma segura</p>
+                    <button class="btn btn-primary" onclick="alert('Contáctenos por WhatsApp para detalles de pago con Visa')">Usar Visa</button>
+                </div>
+
+                <!-- TIGO MONEY -->
+                <div class="payment-method">
+                    <div class="payment-icon">💰</div>
+                    <h3>Tigo Money</h3>
+                    <p>Transferencia rápida y segura</p>
+                    <p class="payment-code">📱 76547194</p>
+                    <button class="btn btn-primary" onclick="alert('Número Tigo Money: 76547194')">Ver Número</button>
+                </div>
+            </div>
+
+            <div class="payment-footer">
+                <p>¿Necesitas ayuda? <a href="https://wa.me/59176547194" target="_blank">Contáctanos por WhatsApp</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/router.js?v=2025080502"></script>
+    <script src="assets/js/api.js?v=2025080502"></script>
+    <script src="assets/js/main.js?v=2025080502"></script>
+</body>
+</html>
+<!-- REFRESH 1785959519 -->
