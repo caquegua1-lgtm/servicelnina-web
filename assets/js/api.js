@@ -179,17 +179,27 @@ const API = {
             id: 10,
             name: "TSM TOOL",
             slug: "tsm-tool",
-            description: "Sistema de administración TSM",
-            details: "Plataforma integral para administración y gestión avanzada.",
-            price: "$40 USD",
-            trial: "30 días gratis - Activación única",
-            features: ["Administración centralizada", "Reportes en tiempo real", "Alertas automáticas", "Seguridad avanzada"],
+            description: "Sistema de administración TSM - OFFICIAL RESELLER",
+            details: "Plataforma integral para administración y gestión avanzada con AUTO API.",
+            price: "$31 - $76 USD",
+            trial: "Planes flexibles - Activación automática",
+            features: [
+                "📅 1 Year License: $76.36 USD",
+                "🔄 3 Months: $31.82 USD",
+                "🔄 6 Months: $46.21 USD",
+                "⚙️ Administración centralizada AUTO API"
+            ],
             icon: "⚙️",
             clients: 0,
             version: "v2.4.1.7",
             requirements: "Windows 7+, 800MB espacio",
-            support: "Soporte técnico prioritario",
-            downloadUrl: "https://servicelnina-production.up.railway.app/descargas/tsm-tool/TSM_SetupV2.4.1.7z"
+            support: "Soporte técnico prioritario - OFFICIAL RESELLER",
+            downloadUrl: "https://servicelnina-production.up.railway.app/descargas/tsm-tool/TSM_SetupV2.4.1.7z",
+            plans: [
+                { name: "TSM Tool Pro 1 Year [AUTO API]", period: "1 YEAR", price: "$76.36 USD" },
+                { name: "TSM Tool Pro 6 Months [AUTO API]", period: "6 MONTHS", price: "$46.21 USD" },
+                { name: "TSM Tool Pro 3 Months [AUTO API]", period: "3 MONTHS", price: "$31.82 USD" }
+            ]
         }
     ],
 
