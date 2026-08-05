@@ -52,33 +52,33 @@ const API = {
         },
         {
             id: 4,
-            name: 'Gestión de Inventario',
-            description: 'Control completo de inventario para empresas',
-            details: 'Sistema robusto para administrar inventario de múltiples sucursales con alertas automáticas y reportes analíticos en tiempo real.',
+            name: 'ServiceNina2',
+            description: 'Aplicación empresarial avanzada',
+            details: 'Software integral para gestión empresarial con múltiples módulos integrados.',
             price: '$40 USD',
             trial: '30 días gratis - Activación única',
-            features: ['Stock en tiempo real', 'Alertas automáticas', 'Multi-sucursal', 'Código de barras', 'Reportes avanzados', 'Auditoría completa'],
-            icon: '📦',
-            clients: 2,
-            version: 'v3.2.1',
-            requirements: 'Windows 7+, 1GB RAM, lector código barras',
-            support: 'Soporte técnico 24/7 vía email',
-            downloadUrl: 'https://servicelnina-production.up.railway.app/download/gestion-inventario'
+            features: ['Módulos integrados', 'Reporting', 'Análisis de datos', 'Seguridad avanzada'],
+            icon: '💼',
+            clients: 0,
+            version: 'v2.0.0',
+            requirements: 'Windows 7+, 1GB RAM',
+            support: 'Soporte técnico disponible',
+            downloadUrl: 'https://servicelnina-production.up.railway.app/descargas/servicenina2/ServiceNina2_v2.0.0.zip'
         },
         {
             id: 5,
-            name: 'ServicelNina Android',
-            description: 'Aplicación móvil de gestión empresarial',
-            details: 'App móvil completa para administrar tu negocio desde cualquier lugar con sincronización en tiempo real y funcionalidad offline.',
+            name: 'Gestor Inventario Policía Boliviana',
+            description: 'Sistema de gestión de inventario especializado',
+            details: 'Software especializado para administración de inventario institucional.',
             price: '$40 USD',
             trial: '30 días gratis - Activación única',
-            features: ['Acceso móvil multiplataforma', 'Sincronización automática', 'Modo offline', 'Notificaciones en tiempo real', 'Interfaz intuitiva', 'Soporte multidioma'],
-            icon: '📱',
-            clients: 1,
-            version: 'v1.0.0',
-            requirements: 'Android 6.0+, 100MB espacio',
-            support: 'Soporte en línea vía WhatsApp',
-            downloadUrl: 'https://servicelnina-production.up.railway.app/download/servicelnina-android'
+            features: ['Control de inventario', 'Reportes institucionales', 'Auditoría completa', 'Multi-usuario'],
+            icon: '🛡️',
+            clients: 0,
+            version: 'v0.0.1',
+            requirements: 'Windows 7+, 500MB espacio',
+            support: 'Soporte técnico disponible',
+            downloadUrl: 'https://servicelnina-production.up.railway.app/descargas/setup-gestorinventario-policiaboliviana/Setup-GestorInventario-PoliciaBoliviana.zip'
         },
         {
             id: 6,
@@ -93,7 +93,7 @@ const API = {
             version: 'v1.0.0',
             requirements: 'Windows XP+, 500MB espacio',
             support: 'Asistencia técnica por email y teléfono',
-            downloadUrl: 'https://servicelnina-production.up.railway.app/download/stock-farmacia'
+            downloadUrl: 'https://servicelnina-production.up.railway.app/descargas/stock-farmacia/stock-farmacia.exe'
         }
     ],
 
