@@ -15,10 +15,10 @@ const API = {
             features: ['Gestión de casos', 'Control de documentos', 'Facturación', 'Reportes', 'Seguimiento de plazos', 'Gestión de clientes'],
             icon: '⚖️',
             clients: 6,
-            version: 'v2.1.2',
+            version: 'v2.1.1',
             requirements: 'Windows 7+, 500MB espacio, conexión internet',
             support: 'Email y WhatsApp 24/7',
-            downloadUrl: 'https://servicelnina-production.up.railway.app/download/estudio-juridico-carrasco'
+            downloadUrl: 'https://servicelnina-production.up.railway.app/descargas/estudio-juridico-carrasco/EstudioJuridico-Setup-2.1.1.exe'
         },
         {
             id: 2,
@@ -30,10 +30,10 @@ const API = {
             features: ['Análisis digital', 'Reportes automáticos', 'Bases de datos seguras', 'Control de muestras', 'Exportación PDF', 'Historial completo'],
             icon: '🔬',
             clients: 1,
-            version: 'v1.8.0',
+            version: 'v1.7.0',
             requirements: 'Windows XP+, 1GB RAM, impresora',
             support: 'Soporte técnico prioritario',
-            downloadUrl: 'https://servicelnina-production.up.railway.app/download/laboratorio-smart'
+            downloadUrl: 'https://servicelnina-production.up.railway.app/descargas/laboratorio-smart/LaboratorioSmart-Setup-1.7.0.exe'
         },
         {
             id: 3,
@@ -48,7 +48,7 @@ const API = {
             version: 'v2.4.0',
             requirements: 'Windows 7+, 800MB espacio',
             support: 'Asistencia técnica vía WhatsApp',
-            downloadUrl: 'https://servicelnina-production.up.railway.app/download/tecnobolivia-manager'
+            downloadUrl: 'https://servicelnina-production.up.railway.app/descargas/gestion-taller/TecnoBoliviaManager-Setup-2.4.0.exe'
         },
         {
             id: 4,
