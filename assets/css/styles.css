@@ -1364,6 +1364,79 @@ footer p {
     transform: translateY(0);
 }
 
+/* ===== LOGIN PAGE ===== */
+.login-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1000px;
+}
+
+.login-card {
+    background: rgba(22, 27, 34, 0.7);
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    border-radius: 12px;
+    padding: 2.5rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.login-card h2 {
+    font-size: 1.8rem;
+}
+
+.login-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-card {
+    background: rgba(22, 27, 34, 0.6);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    backdrop-filter: blur(20px);
+}
+
+.info-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info-card li {
+    padding: 0.5rem 0;
+    color: #c9d1d9;
+    display: flex;
+    align-items: center;
+}
+
+.info-card li:before {
+    content: "✓";
+    color: var(--green);
+    margin-right: 0.8rem;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .login-card {
+        padding: 1.5rem;
+    }
+}
+
 /* ===== UTILIDADES ===== */
 .text-center { text-align: center; }
 .mt-4 { margin-top: 2rem; }

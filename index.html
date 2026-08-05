@@ -29,12 +29,58 @@
                 <li><a href="#" data-route="/soporte">SOPORTE</a></li>
                 <li><a href="#" data-route="/contacto">CONTACTO</a></li>
             </ul>
-            <button class="nav-cta" onclick="router.navigate('/descargas')">Comenzar</button>
+            <button class="nav-cta" id="nav-login-btn" onclick="router.navigate('/login')" style="display: none;">🔐 LOGIN</button>
+            <button class="nav-cta" id="nav-user-btn" style="display: none; background: var(--green);">Cerrar Sesión</button>
             <button class="nav-mobile-toggle">☰</button>
         </div>
     </nav>
 
     <main>
+        <!-- PÁGINA LOGIN -->
+        <section id="login" class="section-dark login-section" style="display: none;">
+            <div class="container">
+                <div class="login-container">
+                    <div class="login-card">
+                        <h2 style="color: var(--blue); margin-bottom: 2rem; text-align: center;">🔐 ACCEDER A MI CUENTA</h2>
+
+                        <form id="login-form" style="margin-bottom: 2rem;">
+                            <div class="form-group">
+                                <label>Correo Electrónico o ID Revendedor</label>
+                                <input type="text" id="login-email" placeholder="tu@email.com o RES-XXXXX" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Contraseña</label>
+                                <input type="password" id="login-password" placeholder="Tu contraseña" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">
+                                INGRESAR
+                            </button>
+                        </form>
+
+                        <div style="text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(37, 99, 235, 0.2);">
+                            <p style="color: #8b949e; margin-bottom: 1rem;">¿No tienes cuenta? Regístrate como revendedor</p>
+                            <button class="btn btn-secondary" onclick="router.navigate('/revendedores')">
+                                REGISTRARSE AHORA
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="login-info">
+                        <div class="info-card">
+                            <h3 style="color: var(--green); margin-bottom: 1rem;">✓ Beneficios de registrarte</h3>
+                            <ul style="margin-left: 1.5rem;">
+                                <li>Acceso a herramientas y aplicaciones</li>
+                                <li>Descarga de software profesional</li>
+                                <li>Gestión de pedidos en tiempo real</li>
+                                <li>Comisiones por ventas</li>
+                                <li>Soporte 24/7</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- PÁGINA INICIO -->
         <section id="inicio" class="hero-premium">
             <div class="hero-content">

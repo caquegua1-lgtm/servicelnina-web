@@ -716,6 +716,85 @@ function makeOrder(slug, name) {
     window.open(`https://wa.me/59176547194?text=${encodedMessage}`, '_blank');
 }
 
+// ===== AUTENTICACIÓN =====
+function isUserAuthenticated() {
+    return localStorage.getItem('reseller_id') !== null;
+}
+
+function getUserData() {
+    return JSON.parse(localStorage.getItem('reseller_data') || '{}');
+}
+
+function logout() {
+    localStorage.removeItem('reseller_id');
+    localStorage.removeItem('reseller_data');
+    router.navigate('/');
+    updateAuthUI();
+}
+
+function updateAuthUI() {
+    const isAuth = isUserAuthenticated();
+    const loginBtn = document.getElementById('nav-login-btn');
+    const userBtn = document.getElementById('nav-user-btn');
+
+    if (loginBtn) loginBtn.style.display = isAuth ? 'none' : 'block';
+    if (userBtn) {
+        if (isAuth) {
+            const userData = getUserData();
+            userBtn.style.display = 'block';
+            userBtn.textContent = `👤 ${userData.nombre?.split(' ')[0] || 'Usuario'} | Cerrar`;
+            userBtn.onclick = logout;
+        } else {
+            userBtn.style.display = 'none';
+        }
+    }
+}
+
+// ===== PÁGINA LOGIN =====
+async function loadLogin() {
+    const form = document.getElementById('login-form');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+
+        // Validar credenciales (búsqueda en localStorage)
+        const resellerId = localStorage.getItem('reseller_id');
+        if (!resellerId) {
+            alert('❌ No hay cuentas registradas. Por favor, regístrate primero.');
+            router.navigate('/revendedores');
+            return;
+        }
+
+        const userData = JSON.parse(localStorage.getItem('reseller_data') || '{}');
+
+        // Verificar que el email coincida
+        if (userData.email === email && password.length > 0) {
+            // Simulamos verificación (en producción: verificar hash de contraseña)
+            alert(`✅ ¡Bienvenido ${userData.nombre}!`);
+            updateAuthUI();
+            router.navigate('/pedidos-revendedor');
+        } else {
+            alert('❌ Credenciales incorrectas. Verifica tu email y contraseña.');
+        }
+    });
+}
+
+// ===== PROTECCIÓN DE RUTAS =====
+function checkAuthAccess(routeName) {
+    const protectedRoutes = ['/descargas', '/pedidos-revendedor'];
+
+    if (protectedRoutes.includes(routeName) && !isUserAuthenticated()) {
+        alert('🔐 Debes registrarte para acceder a esta sección.');
+        router.navigate('/login');
+        return false;
+    }
+    return true;
+}
+
 // ===== INICIALIZAR =====
 document.addEventListener('DOMContentLoaded', () => {
     // Inicializar partículas
@@ -728,6 +807,7 @@ document.addEventListener('DOMContentLoaded', () => {
     router.register('/', 'Inicio', loadInicio);
     router.register('/productos', 'Productos', loadProductos);
     router.register('/soluciones', 'Soluciones', loadSoluciones);
+    router.register('/login', 'Login', loadLogin);
     router.register('/descargas', 'Descargas', loadDescargas);
     router.register('/alquiler', 'Alquiler', loadAlquiler);
     router.register('/pedidos-revendedor', 'Pedidos', loadPedidosRevendedor);
@@ -741,4 +821,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inicializar nav
     initNav();
+
+    // Actualizar UI de autenticación
+    updateAuthUI();
 });
