@@ -23,6 +23,7 @@
                 <li><a href="#" data-route="/soluciones">SOLUCIONES</a></li>
                 <li><a href="#" data-route="/descargas">DESCARGAS</a></li>
                 <li><a href="#" data-route="/alquiler">ALQUILER</a></li>
+                <li><a href="#" data-route="/revendedores">REVENDEDORES</a></li>
                 <li><a href="#" data-route="/licencias">LICENCIAS</a></li>
                 <li><a href="#" data-route="/soporte">SOPORTE</a></li>
                 <li><a href="#" data-route="/contacto">CONTACTO</a></li>
@@ -163,6 +164,84 @@
                 </div>
                 <div class="grid" id="alquiler-grid">
                     <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PÁGINA REVENDEDORES -->
+        <section id="revendedores" class="section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Programa de Revendedores</h2>
+                    <p>Únete como revendedor y gana comisiones con AUTO API directo a WhatsApp</p>
+                </div>
+
+                <div class="grid-2">
+                    <!-- Formulario Registro -->
+                    <div class="card">
+                        <h3>📝 Registrarse como Revendedor</h3>
+                        <form id="reseller-form" style="margin-top: 1.5rem;">
+                            <div class="form-group">
+                                <label>Nombre Completo</label>
+                                <input type="text" name="nombre" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="email" placeholder="tu@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>WhatsApp</label>
+                                <input type="tel" name="whatsapp" placeholder="+591 76547194" required>
+                            </div>
+                            <div class="form-group">
+                                <label>País/Región</label>
+                                <input type="text" name="pais" placeholder="Bolivia" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Empresa/Negocio</label>
+                                <input type="text" name="empresa" placeholder="Mi Negocio" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                                Enviar Solicitud
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Beneficios -->
+                    <div>
+                        <div class="card">
+                            <h3>💰 Beneficios del Programa</h3>
+                            <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Comisiones Altas:</strong> Gana hasta 50% de margen en cada venta
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>AUTO API:</strong> Pedidos automáticos directo a tu WhatsApp
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Dashboard Personal:</strong> Monitorea tus ventas en tiempo real
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Soporte 24/7:</strong> Equipo disponible para ayudarte
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <strong>Acceso a Herramientas:</strong> Todos nuestros productos disponibles
+                                </li>
+                                <li>
+                                    <strong>Pagos Rápidos:</strong> Retiros semanales a tu cuenta
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card mt-4">
+                            <h3>📊 Comisiones Estimadas</h3>
+                            <div style="margin-top: 1.5rem;">
+                                <p style="margin-bottom: 0.5rem;"><strong>Descargas Permanentes:</strong> <span style="color: var(--gold);">+$20-30 por venta</span></p>
+                                <p style="margin-bottom: 0.5rem;"><strong>Alquiler Temporal:</strong> <span style="color: var(--gold);">+$5-15 por venta</span></p>
+                                <p><strong>Planes Anuales:</strong> <span style="color: var(--gold);">+$40-50 por venta</span></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

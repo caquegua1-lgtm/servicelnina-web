@@ -325,6 +325,45 @@ function rentTool(slug, name) {
     window.open('https://wa.me/59176547194', '_blank');
 }
 
+// ===== PÁGINA REVENDEDORES =====
+async function loadRevendedores() {
+    const form = document.getElementById('reseller-form');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const data = {
+            nombre: form.nombre.value,
+            email: form.email.value,
+            whatsapp: form.whatsapp.value,
+            pais: form.pais.value,
+            empresa: form.empresa.value
+        };
+
+        // Crear mensaje para WhatsApp
+        const mensaje = `🤝 NUEVA SOLICITUD DE REVENDEDOR:\n\n` +
+            `👤 Nombre: ${data.nombre}\n` +
+            `📧 Email: ${data.email}\n` +
+            `📱 WhatsApp: ${data.whatsapp}\n` +
+            `🌍 País: ${data.pais}\n` +
+            `🏢 Empresa: ${data.empresa}\n\n` +
+            `⏰ Fecha: ${new Date().toLocaleString('es-BO')}`;
+
+        const encodedMessage = encodeURIComponent(mensaje);
+        const whatsappUrl = `https://wa.me/59176547194?text=${encodedMessage}`;
+
+        // Mostrar confirmación
+        alert('✅ Solicitud enviada a WhatsApp.\n\nSerás contactado próximamente.');
+
+        // Abrir WhatsApp
+        window.open(whatsappUrl, '_blank');
+
+        // Limpiar formulario
+        form.reset();
+    });
+}
+
 // ===== PÁGINA LICENCIAS =====
 async function loadLicencias() {
     // Placeholder
@@ -436,6 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
     router.register('/soluciones', 'Soluciones', loadSoluciones);
     router.register('/descargas', 'Descargas', loadDescargas);
     router.register('/alquiler', 'Alquiler', loadAlquiler);
+    router.register('/revendedores', 'Revendedores', loadRevendedores);
     router.register('/licencias', 'Licencias', loadLicencias);
     router.register('/soporte', 'Soporte', loadSoporte);
     router.register('/contacto', 'Contacto', loadContacto);
