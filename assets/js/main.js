@@ -327,41 +327,162 @@ function rentTool(slug, name) {
 
 // ===== PÁGINA REVENDEDORES =====
 async function loadRevendedores() {
-    const form = document.getElementById('reseller-form');
-    if (!form) return;
+    const resellerId = localStorage.getItem('reseller_id');
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    if (resellerId) {
+        // Ya está registrado - mostrar dashboard
+        showResellerDashboard();
+    } else {
+        // Mostrar formulario de registro
+        const form = document.getElementById('reseller-form');
+        if (!form) return;
 
-        const data = {
-            nombre: form.nombre.value,
-            email: form.email.value,
-            whatsapp: form.whatsapp.value,
-            pais: form.pais.value,
-            empresa: form.empresa.value
-        };
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-        // Crear mensaje para WhatsApp
-        const mensaje = `🤝 NUEVA SOLICITUD DE REVENDEDOR:\n\n` +
-            `👤 Nombre: ${data.nombre}\n` +
-            `📧 Email: ${data.email}\n` +
-            `📱 WhatsApp: ${data.whatsapp}\n` +
-            `🌍 País: ${data.pais}\n` +
-            `🏢 Empresa: ${data.empresa}\n\n` +
-            `⏰ Fecha: ${new Date().toLocaleString('es-BO')}`;
+            const data = {
+                id: 'RES-' + Date.now(),
+                nombre: form.nombre.value,
+                email: form.email.value,
+                whatsapp: form.whatsapp.value,
+                pais: form.pais.value,
+                empresa: form.empresa.value,
+                fechaRegistro: new Date().toLocaleString('es-BO'),
+                ventas: 0,
+                comisionTotal: 0,
+                pedidos: []
+            };
 
-        const encodedMessage = encodeURIComponent(mensaje);
-        const whatsappUrl = `https://wa.me/59176547194?text=${encodedMessage}`;
+            // Guardar en localStorage
+            localStorage.setItem('reseller_id', data.id);
+            localStorage.setItem('reseller_data', JSON.stringify(data));
 
-        // Mostrar confirmación
-        alert('✅ Solicitud enviada a WhatsApp.\n\nSerás contactado próximamente.');
+            // Crear mensaje para WhatsApp
+            const mensaje = `🤝 NUEVA SOLICITUD DE REVENDEDOR:\n\n` +
+                `ID: ${data.id}\n` +
+                `👤 Nombre: ${data.nombre}\n` +
+                `📧 Email: ${data.email}\n` +
+                `📱 WhatsApp: ${data.whatsapp}\n` +
+                `🌍 País: ${data.pais}\n` +
+                `🏢 Empresa: ${data.empresa}\n\n` +
+                `⏰ Fecha: ${data.fechaRegistro}`;
 
-        // Abrir WhatsApp
-        window.open(whatsappUrl, '_blank');
+            const encodedMessage = encodeURIComponent(mensaje);
+            const whatsappUrl = `https://wa.me/59176547194?text=${encodedMessage}`;
 
-        // Limpiar formulario
-        form.reset();
-    });
+            alert('✅ Cuenta creada exitosamente.\n\nSerás contactado próximamente.');
+            window.open(whatsappUrl, '_blank');
+
+            // Recargar para mostrar dashboard
+            setTimeout(() => location.reload(), 1000);
+        });
+    }
+}
+
+function showResellerDashboard() {
+    const container = document.getElementById('revendedores');
+    const data = JSON.parse(localStorage.getItem('reseller_data'));
+
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="container">
+            <div class="section-header">
+                <h2>Mi Dashboard de Revendedor</h2>
+                <p>Bienvenido ${data.nombre} 👋</p>
+            </div>
+
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+                <div class="card" style="background: linear-gradient(135deg, var(--gold)20 0%, var(--blue)20 100%); border: 2px solid var(--gold);">
+                    <h4 style="color: var(--gold);">📊 ID de Revendedor</h4>
+                    <p style="font-size: 1.3rem; font-weight: bold; margin-top: 1rem;">${data.id}</p>
+                </div>
+                <div class="card" style="background: linear-gradient(135deg, #22c55e20 0%, var(--blue)20 100%); border: 2px solid #22c55e;">
+                    <h4 style="color: #22c55e;">💰 Comisión Total</h4>
+                    <p style="font-size: 1.3rem; font-weight: bold; margin-top: 1rem;">$${data.comisionTotal.toFixed(2)} USD</p>
+                </div>
+                <div class="card" style="background: linear-gradient(135deg, #00d9ff20 0%, var(--blue)20 100%); border: 2px solid #00d9ff;">
+                    <h4 style="color: #00d9ff;">📈 Total Ventas</h4>
+                    <p style="font-size: 1.3rem; font-weight: bold; margin-top: 1rem;">${data.ventas} pedidos</p>
+                </div>
+                <div class="card" style="background: linear-gradient(135deg, #fbbf2420 0%, var(--blue)20 100%); border: 2px solid #fbbf24;">
+                    <h4 style="color: #fbbf24;">📅 Registrado</h4>
+                    <p style="font-size: 0.95rem; margin-top: 1rem;">${data.fechaRegistro}</p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>📝 Mis Datos</h3>
+                    <div style="margin-top: 1.5rem;">
+                        <p><strong>Nombre:</strong> ${data.nombre}</p>
+                        <p style="margin-top: 0.5rem;"><strong>Email:</strong> ${data.email}</p>
+                        <p style="margin-top: 0.5rem;"><strong>WhatsApp:</strong> ${data.whatsapp}</p>
+                        <p style="margin-top: 0.5rem;"><strong>País:</strong> ${data.pais}</p>
+                        <p style="margin-top: 0.5rem;"><strong>Empresa:</strong> ${data.empresa}</p>
+                        <button class="btn btn-primary" style="margin-top: 1.5rem; width: 100%;" onclick="editResellerProfile()">
+                            ✏️ Editar Perfil
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🛒 Hacer Nuevo Pedido</h3>
+                    <div style="margin-top: 1.5rem;">
+                        <p style="color: #999; margin-bottom: 1rem;">Selecciona los productos que deseas vender:</p>
+                        <button class="btn btn-primary" style="width: 100%; margin-bottom: 0.5rem;" onclick="makeOrder('descargas')">
+                            📦 Productos Permanentes
+                        </button>
+                        <button class="btn btn-primary" style="width: 100%; margin-bottom: 0.5rem;" onclick="makeOrder('alquiler')">
+                            ⏰ Herramientas de Alquiler
+                        </button>
+                        <button class="btn btn-primary" style="width: 100%;" onclick="contactSupport()">
+                            💬 Contactar Soporte
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h3>💼 Programa de Comisiones</h3>
+                <div style="margin-top: 1.5rem;">
+                    <p style="margin-bottom: 0.5rem;">📦 <strong>Descargas Permanentes:</strong> <span style="color: var(--gold);">+$20-30 por venta</span></p>
+                    <p style="margin-bottom: 0.5rem;">⏰ <strong>Alquiler Temporal:</strong> <span style="color: var(--gold);">+$5-15 por venta</span></p>
+                    <p>📅 <strong>Planes Anuales:</strong> <span style="color: var(--gold);">+$40-50 por venta</span></p>
+                </div>
+            </div>
+
+            <button class="btn btn-details" style="margin-top: 2rem; width: 100%; color: #ff6b6b; border-color: #ff6b6b;" onclick="logoutReseller()">
+                🚪 Cerrar Sesión
+            </button>
+        </div>
+    `;
+}
+
+function makeOrder(type) {
+    const data = JSON.parse(localStorage.getItem('reseller_data'));
+    const message = `Hola, soy revendedor (${data.id}). Quiero hacer un pedido de ${type === 'descargas' ? 'productos permanentes' : 'herramientas de alquiler'}. ¿Cuáles son las opciones disponibles?`;
+    const encoded = encodeURIComponent(message);
+    window.open(`https://wa.me/59176547194?text=${encoded}`, '_blank');
+}
+
+function editResellerProfile() {
+    alert('Función disponible próximamente. Por ahora, contacta a soporte vía WhatsApp.');
+}
+
+function contactSupport() {
+    const data = JSON.parse(localStorage.getItem('reseller_data'));
+    const message = `Hola, soy ${data.nombre} (ID: ${data.id}). Necesito soporte.`;
+    const encoded = encodeURIComponent(message);
+    window.open(`https://wa.me/59176547194?text=${encoded}`, '_blank');
+}
+
+function logoutReseller() {
+    if (confirm('¿Seguro que deseas cerrar sesión?')) {
+        localStorage.removeItem('reseller_id');
+        localStorage.removeItem('reseller_data');
+        location.reload();
+    }
 }
 
 // ===== PÁGINA LICENCIAS =====
