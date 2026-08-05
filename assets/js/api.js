@@ -106,17 +106,28 @@ const API = {
             id: 7,
             name: "CHIMERA TOOL",
             slug: "chimera-tool",
-            description: "Herramienta profesional avanzada",
-            details: "Plataforma especializada para tareas técnicas profesionales.",
-            price: "$40 USD",
-            trial: "30 días gratis - Activación única",
-            features: ["Rendimiento optimizado", "Interfaz intuitiva", "Actualizaciones automáticas", "Soporte prioritario"],
+            description: "Herramienta profesional avanzada - OFFICIAL RESELLER",
+            details: "Plataforma especializada para tareas técnicas profesionales con múltiples planes de activación.",
+            price: "$105 - $192 USD",
+            trial: "Planes flexibles - Activación por 1 año",
+            features: [
+                "💎 Basic: $105 USD (100 Devices)",
+                "🏆 Premium: $192 USD (5000 Devices)",
+                "👑 Professional: $153 USD (1500 Devices)",
+                "⭐ Credits: $10 USD (Existing Users)"
+            ],
             icon: "⚡",
             clients: 0,
             version: "v1",
             requirements: "Windows 10+, 500MB espacio",
-            support: "Soporte técnico 24/7",
-            downloadUrl: "https://servicelnina-production.up.railway.app/descargas/chimera-tool/ChimeraInstaller.exe"
+            support: "Soporte técnico 24/7 - OFFICIAL RESELLER",
+            downloadUrl: "https://servicelnina-production.up.railway.app/descargas/chimera-tool/ChimeraInstaller.exe",
+            plans: [
+                { name: "Basic (1 Year)", devices: "100 Devices", price: "$105 USD" },
+                { name: "Premium (1 Year)", devices: "5000 Devices", price: "$192 USD" },
+                { name: "Professional (1 Year)", devices: "1500 Devices", price: "$153 USD" },
+                { name: "Credits (Existing Users)", devices: "Unlimited", price: "$10 USD" }
+            ]
         },
         {
             id: 8,
