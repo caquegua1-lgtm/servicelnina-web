@@ -256,6 +256,68 @@ function downloadApp(downloadUrl) {
     }
 }
 
+// ===== PÁGINA ALQUILER =====
+async function loadAlquiler() {
+    const container = document.getElementById('alquiler-grid');
+    if (!container) return;
+
+    container.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+
+    try {
+        const rentals = await API.getRentals();
+
+        container.innerHTML = rentals.map((rental, idx) => {
+            const colors = [
+                { primary: '#ff6b6b', secondary: '#0d1117', icon: '⚡' },
+                { primary: '#4ecdc4', secondary: '#0d1117', icon: '📊' },
+                { primary: '#95e1d3', secondary: '#0d1117', icon: '⚙️' },
+                { primary: '#f38181', secondary: '#0d1117', icon: '🔌' },
+                { primary: '#aa96da', secondary: '#0d1117', icon: '🔧' }
+            ];
+            const color = colors[idx % colors.length];
+
+            return `
+                <div class="card-app" style="border-color: ${color.primary}40;">
+                    <div class="app-header" style="background: linear-gradient(135deg, ${color.primary}20 0%, ${color.primary}05 100%); border-bottom: 1px solid ${color.primary}40;">
+                        <div class="app-icon-wrapper" style="color: ${color.primary};">
+                            <div style="font-size: 3rem;">${rental.icon}</div>
+                        </div>
+                        <div class="app-title">
+                            <h3 style="color: ${color.primary};">${rental.name}</h3>
+                            <span class="version-tag" style="background: ${color.primary}20; color: ${color.primary};">${rental.duration}</span>
+                        </div>
+                    </div>
+
+                    <div class="app-body">
+                        <p class="app-description">${rental.description}</p>
+
+                        <div class="app-price" style="background: linear-gradient(135deg, ${color.primary}15 0%, transparent 100%); border: 1px solid ${color.primary}30;">
+                            <span class="price-amount" style="color: ${color.primary}; font-size: 1.5rem; font-weight: bold;">${rental.price}</span>
+                            <span class="price-trial" style="color: ${color.primary}; font-size: 0.85rem;">Acceso temporal</span>
+                        </div>
+                    </div>
+
+                    <div class="app-footer">
+                        <button class="btn btn-primary" onclick="rentTool('${rental.slug}', '${rental.name}')" style="background: linear-gradient(135deg, ${color.primary}, ${color.primary}dd);">
+                            Alquilar Ahora
+                        </button>
+                        <button class="btn btn-details" style="border-color: ${color.primary}; color: ${color.primary};">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    } catch (error) {
+        container.innerHTML = '<p class="text-center">Error al cargar herramientas</p>';
+    }
+}
+
+function rentTool(slug, name) {
+    alert(`Alquiler de ${name} iniciado. Contáctanos por WhatsApp para completar.`);
+    window.open('https://wa.me/59176547194', '_blank');
+}
+
 // ===== PÁGINA LICENCIAS =====
 async function loadLicencias() {
     // Placeholder
@@ -366,6 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
     router.register('/productos', 'Productos', loadProductos);
     router.register('/soluciones', 'Soluciones', loadSoluciones);
     router.register('/descargas', 'Descargas', loadDescargas);
+    router.register('/alquiler', 'Alquiler', loadAlquiler);
     router.register('/licencias', 'Licencias', loadLicencias);
     router.register('/soporte', 'Soporte', loadSoporte);
     router.register('/contacto', 'Contacto', loadContacto);
