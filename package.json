@@ -1,0 +1,13 @@
+{
+  "name": "servicelnina-pro",
+  "version": "1.0.0",
+  "description": "Sitio web profesional de SERVICELNINA",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["servicelnina", "web", "professional"],
+  "author": "Nina",
+  "license": "MIT"
+}
