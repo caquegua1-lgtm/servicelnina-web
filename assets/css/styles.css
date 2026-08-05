@@ -461,6 +461,43 @@ section.active {
     border-bottom: 2px solid;
 }
 
+.app-icon-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mockup-frame {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border-radius: 12px;
+    border: 2px solid currentColor;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.app-icon-badge {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(22, 27, 34, 0.9);
+    border-radius: 50%;
+    border: 3px solid currentColor;
+    z-index: 2;
+    bottom: -5px;
+    right: -5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
 .app-icon {
     font-size: 3rem;
     min-width: 60px;

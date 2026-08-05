@@ -122,19 +122,71 @@ async function loadDescargas() {
 
         container.innerHTML = apps.map((app, idx) => {
             const colors = [
-                { primary: '#d4af37', secondary: '#0d1117', icon: '⚖️' },  // Estudio Jurídico - Dorado
-                { primary: '#00d9ff', secondary: '#0d1117', icon: '🔬' },  // Laboratorio Smart - Cian
-                { primary: '#fbbf24', secondary: '#0d1117', icon: '🔧' },  // Tecnobolivia - Amarillo
-                { primary: '#a78bfa', secondary: '#0d1117', icon: '💼' },  // ServiceNina2 - Púrpura
-                { primary: '#22c55e', secondary: '#0d1117', icon: '🛡️' },  // Gestor Inventario - Verde
-                { primary: '#06b6d4', secondary: '#0d1117', icon: '💊' }   // Stock Farmacia - Cyan
+                { primary: '#d4af37', secondary: '#0d1117', icon: '⚖️', mockup: 'estudio' },  // Estudio Jurídico - Dorado
+                { primary: '#00d9ff', secondary: '#0d1117', icon: '🔬', mockup: 'lab' },  // Laboratorio Smart - Cian
+                { primary: '#fbbf24', secondary: '#0d1117', icon: '🔧', mockup: 'tech' },  // Tecnobolivia - Amarillo
+                { primary: '#a78bfa', secondary: '#0d1117', icon: '💼', mockup: 'service' },  // ServiceNina2 - Púrpura
+                { primary: '#22c55e', secondary: '#0d1117', icon: '🛡️', mockup: 'police' },  // Gestor Inventario - Verde
+                { primary: '#06b6d4', secondary: '#0d1117', icon: '💊', mockup: 'pharmacy' }   // Stock Farmacia - Cyan
             ];
             const color = colors[idx % colors.length];
+
+            // Mockup HTML para cada app
+            const mockups = {
+                estudio: `<div class="mockup-frame" style="background: linear-gradient(135deg, ${color.primary}30 0%, ${color.primary}10 100%);">
+                    <div style="display: grid; gap: 6px; padding: 8px;">
+                        <div style="height: 4px; background: ${color.primary}; border-radius: 2px; width: 80%;"></div>
+                        <div style="height: 3px; background: ${color.primary}40; border-radius: 2px;"></div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: 4px;">
+                            <div style="height: 20px; background: ${color.primary}50; border-radius: 2px;"></div>
+                            <div style="height: 20px; background: ${color.primary}30; border-radius: 2px;"></div>
+                        </div>
+                    </div>
+                </div>`,
+                lab: `<div class="mockup-frame" style="background: linear-gradient(135deg, ${color.primary}30 0%, ${color.primary}10 100%);">
+                    <div style="display: flex; gap: 4px; padding: 8px; height: 50px;">
+                        <div style="flex: 1; background: ${color.primary}; border-radius: 3px;"></div>
+                        <div style="flex: 1; background: ${color.primary}60; border-radius: 3px;"></div>
+                        <div style="flex: 1; background: ${color.primary}30; border-radius: 3px;"></div>
+                    </div>
+                </div>`,
+                tech: `<div class="mockup-frame" style="background: linear-gradient(135deg, ${color.primary}30 0%, ${color.primary}10 100%);">
+                    <div style="padding: 8px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px;">
+                            <div style="height: 15px; background: ${color.primary}; border-radius: 2px;"></div>
+                            <div style="height: 15px; background: ${color.primary}70; border-radius: 2px;"></div>
+                            <div style="height: 15px; background: ${color.primary}40; border-radius: 2px;"></div>
+                        </div>
+                    </div>
+                </div>`,
+                service: `<div class="mockup-frame" style="background: linear-gradient(135deg, ${color.primary}30 0%, ${color.primary}10 100%);">
+                    <div style="padding: 8px;">
+                        <div style="width: 30px; height: 30px; background: conic-gradient(${color.primary} 0deg, ${color.primary}60 180deg, ${color.primary}30 360deg); border-radius: 50%; margin: 0 auto;"></div>
+                    </div>
+                </div>`,
+                police: `<div class="mockup-frame" style="background: linear-gradient(135deg, ${color.primary}30 0%, ${color.primary}10 100%);">
+                    <div style="padding: 8px; text-align: center;">
+                        <div style="font-size: 24px; font-weight: bold; color: ${color.primary}; letter-spacing: 2px;">888</div>
+                        <div style="font-size: 8px; color: ${color.primary}80;">ITEMS</div>
+                    </div>
+                </div>`,
+                pharmacy: `<div class="mockup-frame" style="background: linear-gradient(135deg, ${color.primary}30 0%, ${color.primary}10 100%);">
+                    <div style="padding: 8px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3px;">
+                            <div style="height: 20px; background: ${color.primary}; border-radius: 2px;"></div>
+                            <div style="height: 20px; background: ${color.primary}50; border-radius: 2px;"></div>
+                        </div>
+                    </div>
+                </div>`
+            };
 
             return `
                 <div class="card-app" style="border-color: ${color.primary}40;">
                     <div class="app-header" style="background: linear-gradient(135deg, ${color.primary}20 0%, ${color.primary}05 100%); border-bottom: 1px solid ${color.primary}40;">
-                        <div class="app-icon" style="font-size: 2.5rem; color: ${color.primary};">${app.icon}</div>
+                        <div class="app-icon-wrapper" style="color: ${color.primary};">
+                            ${mockups[color.mockup]}
+                            <div class="app-icon-badge">${app.icon}</div>
+                        </div>
                         <div class="app-title">
                             <h3 style="color: ${color.primary};">${app.name}</h3>
                             <span class="version-tag" style="background: ${color.primary}20; color: ${color.primary};">v${app.version}</span>
